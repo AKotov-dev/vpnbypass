@@ -7,5 +7,5 @@ Sometimes it becomes necessary, with the VPN turned on, to go to sites that are 
   
 ![](https://github.com/AKotov-dev/vpnbypass/blob/main/ScreenShot1.png)  
   
-Tested in Mageia-9.
+In Russia, the program can be tested, for example, [here](https://strelkacard.ru/). Tested in Mageia-9.
 

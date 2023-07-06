@@ -60,7 +60,7 @@ resourcestring
   SDeleteRecord = 'Remove selected domains and routes?';
   SAppendRecord = 'Append a domain and routes';
   SDomainNotFound = 'Domain not found!';
-  SNoData = 'Specify interface (IF) and gateway (GW)!'
+  SNoData = 'Specify interface (IF) and gateway (GW)!';
 
 var
   MainForm: TMainForm;
@@ -210,11 +210,11 @@ var
   SL: TStringList;
   i: integer;
 begin
-    if (Trim(IFaceBox.Text) = '') or (Trim(GWBox.Text) = '') then
-    begin
-      MessageDlg(SNoData, mtWarning, [mbOk], 0);
+  if (Trim(IFaceBox.Text) = '') or (Trim(GWBox.Text) = '') then
+  begin
+    MessageDlg(SNoData, mtWarning, [mbOK], 0);
     Exit;
-    end;
+  end;
 
   Value := '';
   repeat

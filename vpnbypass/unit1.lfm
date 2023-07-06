@@ -421,10 +421,10 @@ object MainForm: TMainForm
       AnchorSideRight.Control = AddBtn
       AnchorSideBottom.Control = AddBtn
       AnchorSideBottom.Side = asrBottom
-      Left = 158
+      Left = 160
       Height = 38
       Top = 8
-      Width = 40
+      Width = 38
       Anchors = [akTop, akRight, akBottom]
       Glyph.Data = {
         36090000424D3609000000000000360000002800000018000000180000000100
@@ -509,10 +509,10 @@ object MainForm: TMainForm
       AnchorSideRight.Control = SaveBtn
       AnchorSideBottom.Control = SaveBtn
       AnchorSideBottom.Side = asrBottom
-      Left = 115
+      Left = 122
       Height = 38
       Top = 8
-      Width = 43
+      Width = 38
       Anchors = [akTop, akRight, akBottom]
       Glyph.Data = {
         36090000424D3609000000000000360000002800000018000000180000000100

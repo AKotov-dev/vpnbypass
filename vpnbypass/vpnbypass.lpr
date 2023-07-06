@@ -17,7 +17,7 @@ uses
 
 begin
   RequireDerivedFormResource:=True;
-  Application.Title:='VPNBypass v0.2';
+  Application.Title:='VPNBypass v0.3';
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);

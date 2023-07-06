@@ -307,6 +307,9 @@ begin
     RunCommand('/bin/bash', ['-c',
       'cd /etc/vpnbypass && tar -cjvf 111.tar.bz2 *box; ' +
       'mv -f 111.tar.bz2 "' + SaveDialog1.FileName + '"'], s);
+
+    BListBox.Items.LoadFromFile('/etc/vpnbypass/blistbox');
+    RListBox.Items.LoadFromFile('/etc/vpnbypass/rlistbox');
   end;
 end;
 
@@ -320,6 +323,9 @@ begin
     Application.ProcessMessages;
     RunCommand('/bin/bash', ['-c', 'cd /etc/vpnbypass && tar -xjvf "' +
       OpenDialog1.FileName + '"'], s);
+
+    BListBox.Items.LoadFromFile('/etc/vpnbypass/blistbox');
+    RListBox.Items.LoadFromFile('/etc/vpnbypass/rlistbox');
   end;
 end;
 

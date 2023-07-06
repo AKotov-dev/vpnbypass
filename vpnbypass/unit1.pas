@@ -310,6 +310,9 @@ begin
 
     BListBox.Items.LoadFromFile('/etc/vpnbypass/blistbox');
     RListBox.Items.LoadFromFile('/etc/vpnbypass/rlistbox');
+
+    if BListBox.Items.Count <> 0 then BListBox.ItemIndex := 0;
+    if RListBox.Items.Count <> 0 then RListBox.ItemIndex := 0;
   end;
 end;
 
@@ -326,6 +329,9 @@ begin
 
     BListBox.Items.LoadFromFile('/etc/vpnbypass/blistbox');
     RListBox.Items.LoadFromFile('/etc/vpnbypass/rlistbox');
+
+    if BListBox.Items.Count <> 0 then BListBox.ItemIndex := 0;
+    if RListBox.Items.Count <> 0 then RListBox.ItemIndex := 0;
   end;
 end;
 

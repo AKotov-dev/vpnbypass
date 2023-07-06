@@ -52,10 +52,14 @@ deb=0
 6=/usr/share/doc/vpnbypass/
 
 [AFTERINSTALL]
-0=systemctl daemon reload
+0=#!/bin/bash
+1=
+2=systemctl daemon-reload
 
 [AFTERREMOVE]
-0=systemctl daemon reload
+0=#!/bin/bash
+1=
+2=systemctl daemon-reload
 
 [URL32]
 url32=https://github.com/AKotov-dev/vpnbypass

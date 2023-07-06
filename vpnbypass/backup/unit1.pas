@@ -60,6 +60,7 @@ resourcestring
   SDeleteRecord = 'Remove selected domains and routes?';
   SAppendRecord = 'Append a domain and routes';
   SDomainNotFound = 'Domain not found!';
+  SNoData = 'Specify interface (IF) and gateway (GW)!'
 
 var
   MainForm: TMainForm;
@@ -209,6 +210,12 @@ var
   SL: TStringList;
   i: integer;
 begin
+    if (Trim(IFaceBox.Text) = '') or (Trim(GWBox.Text) = '') then
+    begin
+      MessageDlg(SNoData, mtWarning, [mbOk], 0);
+    Exit;
+    end;
+
   Value := '';
   repeat
     if not InputQuery(SAppendRecord, '', Value) then
@@ -310,6 +317,9 @@ begin
 
     BListBox.Items.LoadFromFile('/etc/vpnbypass/blistbox');
     RListBox.Items.LoadFromFile('/etc/vpnbypass/rlistbox');
+
+    if BListBox.Items.Count <> 0 then BListBox.ItemIndex := 0;
+    if RListBox.Items.Count <> 0 then RListBox.ItemIndex := 0;
   end;
 end;
 
@@ -326,6 +336,9 @@ begin
 
     BListBox.Items.LoadFromFile('/etc/vpnbypass/blistbox');
     RListBox.Items.LoadFromFile('/etc/vpnbypass/rlistbox');
+
+    if BListBox.Items.Count <> 0 then BListBox.ItemIndex := 0;
+    if RListBox.Items.Count <> 0 then RListBox.ItemIndex := 0;
   end;
 end;
 

@@ -65,3 +65,7 @@ msgstr ""
 msgid "Domain not found!"
 msgstr ""
 
+#: unit1.snodata
+msgid "Specify interface (IF) and gateway (GW)!"
+msgstr ""
+

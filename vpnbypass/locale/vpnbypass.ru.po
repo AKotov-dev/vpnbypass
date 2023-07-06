@@ -56,6 +56,10 @@ msgstr "Добавить маршруты:"
 msgid "Route table:"
 msgstr "Таблица маршрутизации:"
 
+#: tmainform.label6.caption
+msgid "resolving, wait..."
+msgstr ""
+
 #: tmainform.panel2.caption
 msgid "Panel2"
 msgstr ""
@@ -79,3 +83,4 @@ msgstr "Домен не найден!"
 #: unit1.snodata
 msgid "Specify interface (IF) and gateway (GW)!"
 msgstr "Укажите интерфейс (IF) и шлюз (GW)!"
+

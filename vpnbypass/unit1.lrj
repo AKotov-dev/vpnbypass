@@ -9,6 +9,7 @@
 {"hash":19866,"name":"tmainform.label2.caption","sourcebytes":[73,70,58],"value":"IF:"},
 {"hash":180918213,"name":"tmainform.ifacebox.hint","sourcebytes":[73,110,116,101,114,102,97,99,101],"value":"Interface"},
 {"hash":36788474,"name":"tmainform.label5.caption","sourcebytes":[82,111,117,116,101,32,116,97,98,108,101,58],"value":"Route table:"},
+{"hash":117991758,"name":"tmainform.label6.caption","sourcebytes":[114,101,115,111,108,118,105,110,103,44,32,119,97,105,116,46,46,46],"value":"resolving, wait..."},
 {"hash":90721266,"name":"tmainform.panel2.caption","sourcebytes":[80,97,110,101,108,50],"value":"Panel2"},
 {"hash":5885853,"name":"tmainform.addbtn.hint","sourcebytes":[91,73,110,115,101,114,116,93],"value":"[Insert]"},
 {"hash":169660634,"name":"tmainform.label1.caption","sourcebytes":[66,121,112,97,115,115,32,102,111,114,58],"value":"Bypass for:"}

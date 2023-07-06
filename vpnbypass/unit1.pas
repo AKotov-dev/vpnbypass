@@ -24,6 +24,7 @@ type
     Label4: TLabel;
     BListBox: TListBox;
     Label5: TLabel;
+    Label6: TLabel;
     OpenDialog1: TOpenDialog;
     RTableBox: TListBox;
     RListBox: TListBox;
@@ -237,12 +238,13 @@ begin
 
   SL := TStringList.Create;
 
+  Label6.Visible := True;
+  Application.ProcessMessages;
   RunCommand('/bin/bash', ['-c', 'host ' + Value +
     ' | grep "has address" | cut -f4 -d" " | tr "\n" ";" || echo "error"'], s);
 
+  Label6.Visible := False;
   s := Trim(s);
-
-  Application.ProcessMessages;
 
   if (s = 'error') or (s = '') then MessageDlg(SDomainNotFound, mtWarning, [mbOK], 0)
   else

@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 284
+  Left = 282
   Height = 637
-  Top = 125
+  Top = 128
   Width = 886
   ActiveControl = Panel2
   Caption = 'MainForm'
@@ -189,6 +189,23 @@ object MainForm: TMainForm
       BorderSpacing.Top = 5
       Caption = 'Route table:'
       ParentColor = False
+    end
+    object Label6: TLabel
+      AnchorSideRight.Control = Panel1
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Label4
+      AnchorSideBottom.Side = asrBottom
+      Left = 500
+      Height = 17
+      Top = 58
+      Width = 95
+      Anchors = [akRight, akBottom]
+      BorderSpacing.Right = 5
+      Caption = 'resolving, wait...'
+      Font.Color = clRed
+      ParentColor = False
+      ParentFont = False
+      Visible = False
     end
   end
   object Panel2: TPanel

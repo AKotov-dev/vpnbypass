@@ -45,6 +45,10 @@ msgstr ""
 msgid "Route table:"
 msgstr ""
 
+#: tmainform.label6.caption
+msgid "resolving, wait..."
+msgstr ""
+
 #: tmainform.panel2.caption
 msgid "Panel2"
 msgstr ""

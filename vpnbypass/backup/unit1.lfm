@@ -1,5 +1,5 @@
 object MainForm: TMainForm
-  Left = 284
+  Left = 300
   Height = 637
   Top = 125
   Width = 886
@@ -189,6 +189,23 @@ object MainForm: TMainForm
       BorderSpacing.Top = 5
       Caption = 'Route table:'
       ParentColor = False
+    end
+    object Label6: TLabel
+      AnchorSideRight.Control = Panel1
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Label4
+      AnchorSideBottom.Side = asrBottom
+      Left = 500
+      Height = 17
+      Top = 58
+      Width = 95
+      Anchors = [akRight, akBottom]
+      BorderSpacing.Right = 5
+      Caption = 'resolving, wait...'
+      Font.Color = clRed
+      ParentColor = False
+      ParentFont = False
+      Visible = False
     end
   end
   object Panel2: TPanel
@@ -421,10 +438,10 @@ object MainForm: TMainForm
       AnchorSideRight.Control = AddBtn
       AnchorSideBottom.Control = AddBtn
       AnchorSideBottom.Side = asrBottom
-      Left = 158
+      Left = 160
       Height = 38
       Top = 8
-      Width = 40
+      Width = 38
       Anchors = [akTop, akRight, akBottom]
       Glyph.Data = {
         36090000424D3609000000000000360000002800000018000000180000000100
@@ -509,10 +526,10 @@ object MainForm: TMainForm
       AnchorSideRight.Control = SaveBtn
       AnchorSideBottom.Control = SaveBtn
       AnchorSideBottom.Side = asrBottom
-      Left = 115
+      Left = 122
       Height = 38
       Top = 8
-      Width = 43
+      Width = 38
       Anchors = [akTop, akRight, akBottom]
       Glyph.Data = {
         36090000424D3609000000000000360000002800000018000000180000000100

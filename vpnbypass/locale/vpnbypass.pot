@@ -1,0 +1,67 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: tmainform.addbtn.hint
+msgid "[Insert]"
+msgstr ""
+
+#: tmainform.applybtn.caption
+msgid "Restart"
+msgstr ""
+
+#: tmainform.caption
+msgid "MainForm"
+msgstr ""
+
+#: tmainform.defaultbtn.caption
+msgid "Disable"
+msgstr ""
+
+#: tmainform.gwbox.hint
+msgid "Router IP"
+msgstr ""
+
+#: tmainform.ifacebox.hint
+msgid "Interface"
+msgstr ""
+
+#: tmainform.label1.caption
+msgid "Bypass for:"
+msgstr ""
+
+#: tmainform.label2.caption
+msgid "IF:"
+msgstr ""
+
+#: tmainform.label3.caption
+msgid "GW:"
+msgstr ""
+
+#: tmainform.label4.caption
+msgid "Add routes:"
+msgstr ""
+
+#: tmainform.label5.caption
+msgid "Route table:"
+msgstr ""
+
+#: tmainform.panel2.caption
+msgid "Panel2"
+msgstr ""
+
+#: tmainform.statictext1.caption
+msgid "License: GPLv3   Author: alex_q_2000 (C) 2022   URL: https://linuxforum.ru"
+msgstr ""
+
+#: unit1.sappendrecord
+msgid "Append a domain and routes"
+msgstr ""
+
+#: unit1.sdeleterecord
+msgid "Remove selected domains and routes?"
+msgstr ""
+
+#: unit1.sdomainnotfound
+msgid "Domain not found!"
+msgstr ""
+

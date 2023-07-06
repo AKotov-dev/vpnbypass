@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":82722927,"name":"unit1.sdeleterecord","sourcebytes":[82,101,109,111,118,101,32,115,101,108,101,99,116,101,100,32,100,111,109,97,105,110,115,32,97,110,100,32,114,111,117,116,101,115,63],"value":"Remove selected domains and routes?"},
+{"hash":194490163,"name":"unit1.sappendrecord","sourcebytes":[65,112,112,101,110,100,32,97,32,100,111,109,97,105,110,32,97,110,100,32,114,111,117,116,101,115],"value":"Append a domain and routes"},
+{"hash":110662017,"name":"unit1.sdomainnotfound","sourcebytes":[68,111,109,97,105,110,32,110,111,116,32,102,111,117,110,100,33],"value":"Domain not found!"}
+]}

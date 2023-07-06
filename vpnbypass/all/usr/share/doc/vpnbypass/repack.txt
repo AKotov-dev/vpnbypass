@@ -1,0 +1,44 @@
+This repack.txt file was created automatically by RPMCreator v2.5
+It contains the necessary information to recreation the program from the source code
+
+Information about the program:
+---
+Name of program: VPNBypass
+Version of program: 0.1
+Program development tool: Lazarus
+Version of program development tool: 2.2.4
+URL the sources + binaries of the author: 111
+
+Information about the rpm-package:
+---
+Build method: Portable RPM
+Time stamp: 6-7-23 11:12:54
+
+Name: vpnbypass
+Version: 0.1
+Release: 0.mrx9
+Group: Accessibility
+License: GPLv3
+Maintainer: Alex Kotov
+Vendor: alex_q_2000 (C) 2023
+URL of the copy source codes: 111
+
+Summary: VPN bypass for specific sites
+
+Description:
+---
+VPN bypass for specific sites
+---
+More information: /usr/share/doc/package_name/repack.txt
+
+Package dependencies:
+---
+gtk2 polkit bind-utils
+
+Additionally information:
+---
+VPN bypass for specific sites
+
+v0.1
++ Initial release
++ RPM packages for Mageia-9

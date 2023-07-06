@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ $(type -p kdesu) && $XDG_CURRENT_DESKTOP == KDE ]]; then
+    kdesu /usr/share/vpnbypass/vpnbypass
+	else
+    pkexec /usr/share/vpnbypass/vpnbypass
+fi
+
+exit;

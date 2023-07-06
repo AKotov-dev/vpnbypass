@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=VPNBypass
+Comment=VPN bypass
+Comment[ru]=Обход VPN
+Icon=vpnbypass
+Exec=vpnbypass
+Type=Application
+Categories=System;
+Terminal=false

@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  ExtCtrls, IniPropStorage, Process, Types, DefaultTranslator, LCLType, LCLTranslator;
+  ExtCtrls, IniPropStorage, Process, Types, DefaultTranslator, LCLType,
+  LCLTranslator, FileUtil;
 
 type
 
@@ -47,6 +48,7 @@ type
     procedure ApplyBtnClick(Sender: TObject);
     procedure DefaultBtnClick(Sender: TObject);
     procedure LoadBtnClick(Sender: TObject);
+    procedure SaveBtnClick(Sender: TObject);
   private
 
   public
@@ -112,7 +114,7 @@ end;
 procedure TMainForm.FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
   case Key of
-//    VK_DELETE: DelBtn.Click;
+    //    VK_DELETE: DelBtn.Click;
     VK_INSERT: AddBtn.Click;
   end;
 
@@ -294,9 +296,37 @@ begin
   RunCommand('/bin/bash', ['-c', 'systemctl disable vpnbypass'], s);
 end;
 
+//Save
 procedure TMainForm.LoadBtnClick(Sender: TObject);
+var
+  s: ansistring;
 begin
-  if SaveDialog1.Execute then BListBox.Items.SaveToFile(SaveDialog1.FileName);
+  if SaveDialog1.Execute then
+  begin
+    Application.ProcessMessages;
+    RunCommand('/bin/bash', ['-c',
+      'cd /etc/vpnbypass && tar -cjvf 111.tar.bz2 *box; ' +
+      'mv -f 111.tar.bz2 "' + SaveDialog1.FileName + '"'], s);
+
+    BListBox.Items.LoadFromFile('/etc/vpnbypass/blistbox');
+    RListBox.Items.LoadFromFile('/etc/vpnbypass/rlistbox');
+  end;
+end;
+
+//Open
+procedure TMainForm.SaveBtnClick(Sender: TObject);
+var
+  s: ansistring;
+begin
+  if OpenDialog1.Execute then
+  begin
+    Application.ProcessMessages;
+    RunCommand('/bin/bash', ['-c', 'cd /etc/vpnbypass && tar -xjvf "' +
+      OpenDialog1.FileName + '"'], s);
+
+    BListBox.Items.LoadFromFile('/etc/vpnbypass/blistbox');
+    RListBox.Items.LoadFromFile('/etc/vpnbypass/rlistbox');
+  end;
 end;
 
 end.

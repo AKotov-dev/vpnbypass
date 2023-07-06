@@ -1,5 +1,5 @@
 object MainForm: TMainForm
-  Left = 283
+  Left = 284
   Height = 637
   Top = 125
   Width = 886
@@ -11,7 +11,7 @@ object MainForm: TMainForm
   OnCreate = FormCreate
   OnKeyUp = FormKeyUp
   OnShow = FormShow
-  SessionProperties = 'Height;Left;Panel2.Width;Top;Width;IfaceBox.Text;GWBox.Text'
+  SessionProperties = 'GWBox.Text;Height;IfaceBox.Text;Left;Panel2.Width;Top;Width;OpenDialog1.InitialDir;SaveDialog1.InitialDir'
   LCLVersion = '2.2.4.0'
   object StaticText1: TStaticText
     Left = 0
@@ -146,10 +146,13 @@ object MainForm: TMainForm
       AnchorSideTop.Side = asrCenter
       Left = 20
       Height = 37
+      Hint = 'Interface'
       Top = 9
       Width = 150
       BorderSpacing.Left = 2
       ItemHeight = 0
+      ParentShowHint = False
+      ShowHint = True
       TabOrder = 2
     end
     object RTableBox: TListBox
@@ -499,6 +502,7 @@ object MainForm: TMainForm
         E1B8009EE0320000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000
       }
+      OnClick = SaveBtnClick
     end
     object LoadBtn: TSpeedButton
       AnchorSideTop.Control = SaveBtn
@@ -730,13 +734,14 @@ object MainForm: TMainForm
   object OpenDialog1: TOpenDialog
     DefaultExt = '.*.bps'
     Filter = 'VPNBypass files (*.bps)|*.bps'
-    Left = 61
-    Top = 150
+    Left = 176
+    Top = 152
   end
   object SaveDialog1: TSaveDialog
     DefaultExt = '.*.bps'
     Filter = 'VPNBypass files (*.bps)|*.bps'
-    Left = 152
+    Options = [ofOverwritePrompt, ofEnableSizing, ofViewDetail]
+    Left = 76
     Top = 152
   end
 end

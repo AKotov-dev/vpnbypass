@@ -33,7 +33,7 @@ type
     ApplyBtn: TSpeedButton;
     DelBtn: TSpeedButton;
     AddBtn: TSpeedButton;
-    DisableBtn: TSpeedButton;
+    StopBtn: TSpeedButton;
     SaveBtn: TSpeedButton;
     LoadBtn: TSpeedButton;
     SaveDialog1: TSaveDialog;
@@ -47,7 +47,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure AddBtnClick(Sender: TObject);
     procedure ApplyBtnClick(Sender: TObject);
-    procedure DisableBtnClick(Sender: TObject);
+    procedure StopBtnClick(Sender: TObject);
     procedure LoadBtnClick(Sender: TObject);
     procedure SaveBtnClick(Sender: TObject);
   private
@@ -292,7 +292,7 @@ begin
 end;
 
 //Disable
-procedure TMainForm.DisableBtnClick(Sender: TObject);
+procedure TMainForm.StopBtnClick(Sender: TObject);
 var
   s, s1: ansistring;
 begin
@@ -335,7 +335,7 @@ begin
   begin
     Application.ProcessMessages;
 
-    DisableBtn.Click;
+    StopBtn.Click;
     RunCommand('/bin/bash', ['-c', 'cd /etc/vpnbypass && tar -xjvf "' +
       OpenDialog1.FileName + '"'], s);
 

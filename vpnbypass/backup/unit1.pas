@@ -204,6 +204,7 @@ begin
   if RTableBox.Items.Count <> 0 then RTableBox.ItemIndex := 0;
 end;
 
+//Add
 procedure TMainForm.AddBtnClick(Sender: TObject);
 var
   Value: string;

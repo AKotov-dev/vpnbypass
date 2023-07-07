@@ -24,11 +24,6 @@ msgstr "Рестарт"
 msgid "MainForm"
 msgstr ""
 
-#: tmainform.disablebtn.caption
-msgctxt "tmainform.disablebtn.caption"
-msgid "Disable"
-msgstr "Отключить"
-
 #: tmainform.gwbox.hint
 msgid "Router IP"
 msgstr "IP роутера"
@@ -66,8 +61,12 @@ msgid "Panel2"
 msgstr ""
 
 #: tmainform.statictext1.caption
-msgid "License: GPLv3   Author: alex_q_2000 (C) 2022   URL: https://linuxforum.ru"
-msgstr "Лицензия: GPLv3   Автор: alex_q_2000 (C) 2022   URL: https://linuxforum.ru"
+msgid "License: GPLv3   Author: alex_q_2000 (C) 2023   URL: https://linuxforum.ru"
+msgstr "Лицензия: GPLv3   Автор: alex_q_2000 (C) 2023   URL: https://linuxforum.ru"
+
+#: tmainform.stopbtn.caption
+msgid "Stop"
+msgstr "Стоп"
 
 #: unit1.sappendrecord
 msgid "Append a domain and routes"

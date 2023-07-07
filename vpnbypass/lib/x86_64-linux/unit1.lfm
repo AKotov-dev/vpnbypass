@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 282
+  Left = 281
   Height = 637
-  Top = 127
+  Top = 126
   Width = 886
   ActiveControl = Panel2
   Caption = 'MainForm'
@@ -19,7 +19,7 @@ object MainForm: TMainForm
     Top = 617
     Width = 886
     Align = alBottom
-    Caption = 'License: GPLv3   Author: alex_q_2000 (C) 2022   URL: https://linuxforum.ru'
+    Caption = 'License: GPLv3   Author: alex_q_2000 (C) 2023   URL: https://linuxforum.ru'
     Font.Color = clGray
     Font.Height = -11
     Font.Name = 'Sans'
@@ -85,10 +85,10 @@ object MainForm: TMainForm
     end
     object ApplyBtn: TSpeedButton
       AnchorSideLeft.Side = asrBottom
-      AnchorSideTop.Control = DisableBtn
+      AnchorSideTop.Control = StopBtn
       AnchorSideRight.Control = Panel1
       AnchorSideRight.Side = asrBottom
-      AnchorSideBottom.Control = DisableBtn
+      AnchorSideBottom.Control = StopBtn
       AnchorSideBottom.Side = asrBottom
       Left = 495
       Height = 37
@@ -100,7 +100,7 @@ object MainForm: TMainForm
       Caption = 'Restart'
       OnClick = ApplyBtnClick
     end
-    object DisableBtn: TSpeedButton
+    object StopBtn: TSpeedButton
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = GWBox
       AnchorSideRight.Control = ApplyBtn
@@ -113,8 +113,8 @@ object MainForm: TMainForm
       Anchors = [akTop, akRight, akBottom]
       BorderSpacing.Left = 12
       BorderSpacing.Right = 2
-      Caption = 'Disable'
-      OnClick = DisableBtnClick
+      Caption = 'Stop'
+      OnClick = StopBtnClick
     end
     object Label3: TLabel
       AnchorSideLeft.Control = IfaceBox

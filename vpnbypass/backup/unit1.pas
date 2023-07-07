@@ -33,7 +33,7 @@ type
     ApplyBtn: TSpeedButton;
     DelBtn: TSpeedButton;
     AddBtn: TSpeedButton;
-    DefaultBtn: TSpeedButton;
+    DisableBtn: TSpeedButton;
     SaveBtn: TSpeedButton;
     LoadBtn: TSpeedButton;
     SaveDialog1: TSaveDialog;
@@ -47,7 +47,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure AddBtnClick(Sender: TObject);
     procedure ApplyBtnClick(Sender: TObject);
-    procedure DefaultBtnClick(Sender: TObject);
+    procedure DisableBtnClick(Sender: TObject);
     procedure LoadBtnClick(Sender: TObject);
     procedure SaveBtnClick(Sender: TObject);
   private
@@ -291,7 +291,7 @@ begin
 end;
 
 //Disable
-procedure TMainForm.DefaultBtnClick(Sender: TObject);
+procedure TMainForm.DisableBtnClick(Sender: TObject);
 var
   s, s1: ansistring;
 begin
@@ -317,11 +317,11 @@ begin
       'cd /etc/vpnbypass && tar -cjvf 111.tar.bz2 *box; ' +
       'mv -f 111.tar.bz2 "' + SaveDialog1.FileName + '"'], s);
 
-    BListBox.Items.LoadFromFile('/etc/vpnbypass/blistbox');
+   { BListBox.Items.LoadFromFile('/etc/vpnbypass/blistbox');
     RListBox.Items.LoadFromFile('/etc/vpnbypass/rlistbox');
 
     if BListBox.Items.Count <> 0 then BListBox.ItemIndex := 0;
-    if RListBox.Items.Count <> 0 then RListBox.ItemIndex := 0;
+    if RListBox.Items.Count <> 0 then RListBox.ItemIndex := 0; }
   end;
 end;
 
@@ -333,6 +333,8 @@ begin
   if OpenDialog1.Execute then
   begin
     Application.ProcessMessages;
+
+    DisableBtn.Click;
     RunCommand('/bin/bash', ['-c', 'cd /etc/vpnbypass && tar -xjvf "' +
       OpenDialog1.FileName + '"'], s);
 

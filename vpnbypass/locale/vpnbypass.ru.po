@@ -24,9 +24,10 @@ msgstr "Рестарт"
 msgid "MainForm"
 msgstr ""
 
-#: tmainform.defaultbtn.caption
+#: tmainform.disablebtn.caption
+msgctxt "tmainform.disablebtn.caption"
 msgid "Disable"
-msgstr "Выключить"
+msgstr "Отключить"
 
 #: tmainform.gwbox.hint
 msgid "Router IP"
@@ -83,4 +84,3 @@ msgstr "Домен не найден!"
 #: unit1.snodata
 msgid "Specify interface (IF) and gateway (GW)!"
 msgstr "Укажите интерфейс (IF) и шлюз (GW)!"
-

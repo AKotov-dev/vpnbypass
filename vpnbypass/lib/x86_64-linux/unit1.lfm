@@ -1,7 +1,7 @@
 object MainForm: TMainForm
   Left = 282
   Height = 637
-  Top = 128
+  Top = 127
   Width = 886
   ActiveControl = Panel2
   Caption = 'MainForm'
@@ -85,10 +85,10 @@ object MainForm: TMainForm
     end
     object ApplyBtn: TSpeedButton
       AnchorSideLeft.Side = asrBottom
-      AnchorSideTop.Control = DefaultBtn
+      AnchorSideTop.Control = DisableBtn
       AnchorSideRight.Control = Panel1
       AnchorSideRight.Side = asrBottom
-      AnchorSideBottom.Control = DefaultBtn
+      AnchorSideBottom.Control = DisableBtn
       AnchorSideBottom.Side = asrBottom
       Left = 495
       Height = 37
@@ -100,7 +100,7 @@ object MainForm: TMainForm
       Caption = 'Restart'
       OnClick = ApplyBtnClick
     end
-    object DefaultBtn: TSpeedButton
+    object DisableBtn: TSpeedButton
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = GWBox
       AnchorSideRight.Control = ApplyBtn
@@ -114,7 +114,7 @@ object MainForm: TMainForm
       BorderSpacing.Left = 12
       BorderSpacing.Right = 2
       Caption = 'Disable'
-      OnClick = DefaultBtnClick
+      OnClick = DisableBtnClick
     end
     object Label3: TLabel
       AnchorSideLeft.Control = IfaceBox

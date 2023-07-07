@@ -13,7 +13,8 @@ msgstr ""
 msgid "MainForm"
 msgstr ""
 
-#: tmainform.defaultbtn.caption
+#: tmainform.disablebtn.caption
+msgctxt "tmainform.disablebtn.caption"
 msgid "Disable"
 msgstr ""
 

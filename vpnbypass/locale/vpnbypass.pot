@@ -17,7 +17,8 @@ msgstr ""
 msgid "Router IP"
 msgstr ""
 
-#: tmainform.ifacebox.hint
+#: tmainform.ifbox.hint
+msgctxt "tmainform.ifbox.hint"
 msgid "Interface"
 msgstr ""
 

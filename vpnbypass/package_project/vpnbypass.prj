@@ -2,7 +2,7 @@
 name=vpnbypass
 
 [VERSION]
-version=0.4
+version=0.5
 
 [RELEASE]
 release=0.mrx9
@@ -76,18 +76,22 @@ toolversion=2.2.4
 [INFO]
 0=VPN bypass for specific sites
 1=
-2=v0.4
-3=+ Default before loading from file
+2=v0.5
+3=+ Loading and saving IF and GW
 4=+ RPM packages for Mageia-9 and Ubuntu
 5=
-6=v0.3
-7=+ Cosmetic edits
+6=v0.4
+7=+ Default before loading from file
 8=+ RPM packages for Mageia-9 and Ubuntu
 9=
-10=v0.2
-11=+ General improvement in functioning
+10=v0.3
+11=+ Cosmetic edits
 12=+ RPM packages for Mageia-9 and Ubuntu
 13=
-14=v0.1
-15=+ Initial release
-16=+ RPM packages for Mageia-9
+14=v0.2
+15=+ General improvement in functioning
+16=+ RPM packages for Mageia-9 and Ubuntu
+17=
+18=v0.1
+19=+ Initial release
+20=+ RPM packages for Mageia-9

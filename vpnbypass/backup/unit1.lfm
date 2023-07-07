@@ -1,17 +1,18 @@
 object MainForm: TMainForm
-  Left = 282
+  Left = 304
   Height = 637
-  Top = 127
+  Top = 58
   Width = 886
   ActiveControl = Panel2
   Caption = 'MainForm'
   ClientHeight = 637
   ClientWidth = 886
   KeyPreview = True
+  OnClose = FormClose
   OnCreate = FormCreate
   OnKeyUp = FormKeyUp
   OnShow = FormShow
-  SessionProperties = 'GWBox.Text;Height;IfaceBox.Text;Left;Panel2.Width;Top;Width;OpenDialog1.InitialDir;SaveDialog1.InitialDir'
+  SessionProperties = 'Height;Left;OpenDialog1.InitialDir;Panel2.Width;SaveDialog1.InitialDir;Top;Width'
   LCLVersion = '2.2.4.0'
   object StaticText1: TStaticText
     Left = 0
@@ -85,10 +86,10 @@ object MainForm: TMainForm
     end
     object ApplyBtn: TSpeedButton
       AnchorSideLeft.Side = asrBottom
-      AnchorSideTop.Control = DisableBtn
+      AnchorSideTop.Control = StopBtn
       AnchorSideRight.Control = Panel1
       AnchorSideRight.Side = asrBottom
-      AnchorSideBottom.Control = DisableBtn
+      AnchorSideBottom.Control = StopBtn
       AnchorSideBottom.Side = asrBottom
       Left = 495
       Height = 37
@@ -100,7 +101,7 @@ object MainForm: TMainForm
       Caption = 'Restart'
       OnClick = ApplyBtnClick
     end
-    object DisableBtn: TSpeedButton
+    object StopBtn: TSpeedButton
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = GWBox
       AnchorSideRight.Control = ApplyBtn
@@ -113,11 +114,11 @@ object MainForm: TMainForm
       Anchors = [akTop, akRight, akBottom]
       BorderSpacing.Left = 12
       BorderSpacing.Right = 2
-      Caption = 'Disable'
-      OnClick = DisableBtnClick
+      Caption = 'Stop'
+      OnClick = StopBtnClick
     end
     object Label3: TLabel
-      AnchorSideLeft.Control = IfaceBox
+      AnchorSideLeft.Control = IFBox
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = Label2
       Left = 180
@@ -139,7 +140,7 @@ object MainForm: TMainForm
       Caption = 'IF:'
       ParentColor = False
     end
-    object IfaceBox: TComboBox
+    object IFBox: TComboBox
       AnchorSideLeft.Control = Label2
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = Label2
@@ -433,7 +434,7 @@ object MainForm: TMainForm
       Caption = 'Bypass for:'
       ParentColor = False
     end
-    object SaveBtn: TSpeedButton
+    object OpenBtn: TSpeedButton
       AnchorSideTop.Control = AddBtn
       AnchorSideRight.Control = AddBtn
       AnchorSideBottom.Control = AddBtn
@@ -519,12 +520,12 @@ object MainForm: TMainForm
         E1B8009EE0320000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000
       }
-      OnClick = SaveBtnClick
+      OnClick = OpenBtnClick
     end
-    object LoadBtn: TSpeedButton
-      AnchorSideTop.Control = SaveBtn
-      AnchorSideRight.Control = SaveBtn
-      AnchorSideBottom.Control = SaveBtn
+    object SaveBtn: TSpeedButton
+      AnchorSideTop.Control = OpenBtn
+      AnchorSideRight.Control = OpenBtn
+      AnchorSideBottom.Control = OpenBtn
       AnchorSideBottom.Side = asrBottom
       Left = 122
       Height = 38
@@ -607,7 +608,7 @@ object MainForm: TMainForm
         1E44CE801E44CE801E44CE801E44CE801E44CE801E44CE801E44CE801E44CE80
         1E44CE801E44CE811E43C68E1C09000000000000000000000000
       }
-      OnClick = LoadBtnClick
+      OnClick = SaveBtnClick
     end
   end
   object Splitter1: TSplitter

@@ -14,7 +14,7 @@ type
   { TMainForm }
 
   TMainForm = class(TForm)
-    IfaceBox: TComboBox;
+    IFBox: TComboBox;
     GWBox: TEdit;
     ImageList1: TImageList;
     IniPropStorage1: TIniPropStorage;
@@ -34,22 +34,23 @@ type
     DelBtn: TSpeedButton;
     AddBtn: TSpeedButton;
     StopBtn: TSpeedButton;
+    OpenBtn: TSpeedButton;
     SaveBtn: TSpeedButton;
-    LoadBtn: TSpeedButton;
     SaveDialog1: TSaveDialog;
     Splitter1: TSplitter;
     StaticText1: TStaticText;
     procedure BListBoxDrawItem(Control: TWinControl; Index: integer;
       ARect: TRect; State: TOwnerDrawState);
     procedure DelBtnClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure AddBtnClick(Sender: TObject);
     procedure ApplyBtnClick(Sender: TObject);
     procedure StopBtnClick(Sender: TObject);
-    procedure LoadBtnClick(Sender: TObject);
     procedure SaveBtnClick(Sender: TObject);
+    procedure OpenBtnClick(Sender: TObject);
   private
 
   public
@@ -99,7 +100,7 @@ begin
     SL.DelimitedText := Trim(s);
 
     for i := 0 to SL.Count - 2 do
-      IFaceBox.Items.Append(SL[i]);
+      IFBox.Items.Append(SL[i]);
 
     //Загрузка списка сайтов
     if FileExists('/etc/vpnbypass/blistbox') then
@@ -107,6 +108,13 @@ begin
     //Загрузка списка маршрутов
     if FileExists('/etc/vpnbypass/rlistbox') then
       RListBox.Items.LoadFromFile('/etc/vpnbypass/rlistbox');
+    //Загрузка IF и GW
+    if FileExists('/etc/vpnbypass/if_gwbox') then
+    begin
+      SL.LoadFromFile('/etc/vpnbypass/if_gwbox');
+      IFBox.Text := SL[0];
+      GWBox.Text := SL[1];
+    end;
 
   finally
     SL.Free;
@@ -164,6 +172,21 @@ begin
   end;
 end;
 
+//Сохраняем IF и GW в отдельный файл
+procedure TMainForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+var
+  S: TStringList;
+begin
+  try
+    S := TStringList.Create;
+    S.Add(IFBox.Text);
+    S.Add(GWBox.Text);
+    S.SaveToFile('/etc/vpnbypass/if_gwbox');
+  finally
+    S.Free;
+  end;
+end;
+
 procedure TMainForm.BListBoxDrawItem(Control: TWinControl; Index: integer;
   ARect: TRect; State: TOwnerDrawState);
 var
@@ -212,7 +235,7 @@ var
   SL: TStringList;
   i: integer;
 begin
-  if (Trim(IFaceBox.Text) = '') or (Trim(GWBox.Text) = '') then
+  if (Trim(IFBox.Text) = '') or (Trim(GWBox.Text) = '') then
   begin
     MessageDlg(SNoData, mtWarning, [mbOK], 0);
     Exit;
@@ -258,7 +281,7 @@ begin
     for i := 0 to SL.Count - 2 do
     begin
       RListBox.Items.Append('ip r a ' + SL[i] + ' via ' + GWBox.Text +
-        ' dev ' + IfaceBox.Text + '; # ' + Value);
+        ' dev ' + IFBox.Text + '; # ' + Value);
     end;
 
     BListBox.Items.Append(Value);
@@ -279,7 +302,7 @@ procedure TMainForm.ApplyBtnClick(Sender: TObject);
 var
   s, s1: ansistring;
 begin
-  if (Trim(IFaceBox.Text) = '') or (Trim(GWBox.Text) = '') or (RListBox.Count = 0) then
+  if (Trim(IFBox.Text) = '') or (Trim(GWBox.Text) = '') or (RListBox.Count = 0) then
     Exit;
 
   RunCommand('/bin/bash', ['-c',
@@ -291,7 +314,7 @@ begin
   RunCommand('/bin/bash', ['-c', 'systemctl enable vpnbypass'], s);
 end;
 
-//Disable
+//Stop
 procedure TMainForm.StopBtnClick(Sender: TObject);
 var
   s, s1: ansistring;
@@ -307,43 +330,63 @@ begin
 end;
 
 //Save
-procedure TMainForm.LoadBtnClick(Sender: TObject);
-var
-  s: ansistring;
-begin
-  if SaveDialog1.Execute then
-  begin
-    Application.ProcessMessages;
-    RunCommand('/bin/bash', ['-c',
-      'cd /etc/vpnbypass && tar -cjvf 111.tar.bz2 *box; ' +
-      'mv -f 111.tar.bz2 "' + SaveDialog1.FileName + '"'], s);
-
-   { BListBox.Items.LoadFromFile('/etc/vpnbypass/blistbox');
-    RListBox.Items.LoadFromFile('/etc/vpnbypass/rlistbox');
-
-    if BListBox.Items.Count <> 0 then BListBox.ItemIndex := 0;
-    if RListBox.Items.Count <> 0 then RListBox.ItemIndex := 0; }
-  end;
-end;
-
-//Open
 procedure TMainForm.SaveBtnClick(Sender: TObject);
 var
   s: ansistring;
+  SL: TStringList;
 begin
-  if OpenDialog1.Execute then
-  begin
-    Application.ProcessMessages;
+  try
+    SL := TStringList.Create;
 
-    StopBtn.Click;
-    RunCommand('/bin/bash', ['-c', 'cd /etc/vpnbypass && tar -xjvf "' +
-      OpenDialog1.FileName + '"'], s);
+    if SaveDialog1.Execute then
+    begin
+      SL.Add(IFBox.Text);
+      SL.Add(GWBox.Text);
+      SL.SaveToFile('/etc/vpnbypass/if_gwbox');
 
-    BListBox.Items.LoadFromFile('/etc/vpnbypass/blistbox');
-    RListBox.Items.LoadFromFile('/etc/vpnbypass/rlistbox');
+      Application.ProcessMessages;
+      RunCommand('/bin/bash', ['-c',
+        'cd /etc/vpnbypass && tar -cjvf 111.tar.bz2 *box; ' +
+        'mv -f 111.tar.bz2 "' + SaveDialog1.FileName + '"'], s);
+    end;
+  finally
+    SL.Free;
+  end;
+end;
 
-    if BListBox.Items.Count <> 0 then BListBox.ItemIndex := 0;
-    if RListBox.Items.Count <> 0 then RListBox.ItemIndex := 0;
+//Load
+procedure TMainForm.OpenBtnClick(Sender: TObject);
+var
+  s: ansistring;
+  SL: TStringList;
+begin
+  try
+    SL := TStringList.Create;
+
+    if OpenDialog1.Execute then
+    begin
+      Application.ProcessMessages;
+
+      StopBtn.Click;
+      RunCommand('/bin/bash', ['-c', 'cd /etc/vpnbypass && tar -xjvf "' +
+        OpenDialog1.FileName + '"'], s);
+
+      //Загрузка IF и GW
+      if FileExists('/etc/vpnbypass/if_gwbox') then
+      begin
+        SL.LoadFromFile('/etc/vpnbypass/if_gwbox');
+        IFBox.Text := SL[0];
+        GWBox.Text := SL[1];
+      end;
+
+      BListBox.Items.LoadFromFile('/etc/vpnbypass/blistbox');
+      RListBox.Items.LoadFromFile('/etc/vpnbypass/rlistbox');
+
+      if BListBox.Items.Count <> 0 then BListBox.ItemIndex := 0;
+      if RListBox.Items.Count <> 0 then RListBox.ItemIndex := 0;
+    end;
+  finally
+    SL.Free;
   end;
 end;
 

@@ -29,7 +29,6 @@ msgid "Router IP"
 msgstr "IP роутера"
 
 #: tmainform.ifbox.hint
-#, fuzzy
 msgctxt "tmainform.ifbox.hint"
 msgid "Interface"
 msgstr "Интерфейс"
@@ -85,4 +84,3 @@ msgstr "Домен не найден!"
 #: unit1.snodata
 msgid "Specify interface (IF) and gateway (GW)!"
 msgstr "Укажите интерфейс (IF) и шлюз (GW)!"
-
